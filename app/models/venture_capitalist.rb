@@ -33,13 +33,28 @@ class VentureCapitalist
     end
 
     def biggest_investment
-        biggest_funding_round = funding_rounds[0]
-        funding_rounds.each do |funding_round|
-            if funding_round.investment > biggest_funding_round.investment
-                biggest_funding_round = funding_round
-            end
-        end
-        biggest_funding_round
+        # biggest_funding_round = funding_rounds[0]
+        # funding_rounds.each do |funding_round|
+        #     if funding_round.investment > biggest_funding_round.investment
+        #         biggest_funding_round = funding_round
+        #     end
+        # end
+        # biggest_funding_round
+
+        # Credits to Laurell
+        sorted = self.funding_rounds.sort_by(&:investment)
+        sorted[-1]
+      
+    end
+
+    def invested(domain)
+        total = 0
+
+        funding_rounds_with_domain = funding_rounds.select { |funding_round| funding_round.startup.domain == domain }
+
+        funding_rounds_with_domain.each { |funding_round_with_domain| total += funding_round_with_domain.investment }
+
+        total
     end
 
 end

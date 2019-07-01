@@ -37,6 +37,7 @@ funding_round5 = vc1.offer_contract(startup1, "Series B", 4000)
 vc1.funding_rounds
 vc1.portfolio
 vc1.biggest_investment
+vc1.invested("apple.com")
 
 binding.pry
 0 #leave this here to ensure binding.pry isn't the last line
